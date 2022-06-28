@@ -5,9 +5,8 @@
 Router::get("", function() {
     include "views/home.php";
 });
-
 Router::get("home", function() {
-    include "views/home.php";
+    include "./views/home.php";
 });
 
 //post
