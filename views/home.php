@@ -184,7 +184,7 @@ include "./views/inc/head.php";
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="./views/assets/img/team/quan.jpg" alt="..." />
                         <h4>Nguyen Khac Anh Quan</h4>
-                        <p class="text-muted">Bartender</p>
+                        <p class="text-muted">Barista</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
