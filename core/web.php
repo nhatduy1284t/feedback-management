@@ -9,42 +9,15 @@ Router::get("home", function() {
     include "./views/home.php";
 });
 
-//post
-Router::get("posts", function() {
-    $postController = new PostsController;
-    $postController->getPosts();
-});
-
-Router::get("posts/get/{id}", function($id) {
-    $postController = new PostsController;
-    $postController->getPost($id);
-});
-
-Router::get("posts/create", function() {
-    $postController = new PostsController;
-    $postController->loadCreate();
-});
-
-Router::post("posts/create", function() {
-    $postController = new PostsController;
-    $postController->create($_POST);
-});
-
 //user
-
-Router::post("users/login", function() {
-    $usersController = new UsersController;
-    $usersController->login($_POST);
-});
-
-Router::post("users/create", function() {
-    $usersController = new UsersController;
-    $usersController->create($_POST);
-});
-
-Router::get("users/login", function() {
-    $usersController = new UsersController;
+Router::get("user/login", function() {
+    $usersController = new UserController;
     $usersController->getLogin();
+});
+
+Router::get("user/create", function() {
+    $usersController = new UserController;
+    $usersController->getCreate();
 });
 
 // after running registry if no matches are found: 404
