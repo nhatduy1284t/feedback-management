@@ -5,10 +5,10 @@ if (!isset($_SESSION['logged_in'])) {
     $_SESSION['logged_in'] = false;
 }
 
-include_once "core/DB.php";
-DB::getInstance();
-DB::connect("localhost", "root", "", "2022mvc1");
-$conn = DB::getConn();
+// include_once "core/DB.php";
+// DB::getInstance();
+// DB::connect("localhost", "root", "", "2022mvc1");
+// $conn = DB::getConn();
 // auto load classes
 spl_autoload_register(function ($className) {
     if (file_exists("core/" . $className . ".php")) {
