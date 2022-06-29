@@ -50,7 +50,7 @@ include "./views/inc/head.php";
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">MENU</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">Top preferred</h3>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -176,7 +176,7 @@ include "./views/inc/head.php";
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="./views/assets/img/team/duy.jpg" alt="..." />
                         <h4>Trinh Nhat Duy</h4>
-                        <p class="text-muted">Manager</p>
+                        <p class="text-muted">2059007</p>
 
                     </div>
                 </div>
@@ -184,14 +184,14 @@ include "./views/inc/head.php";
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="./views/assets/img/team/quan.jpg" alt="..." />
                         <h4>Nguyen Khac Anh Quan</h4>
-                        <p class="text-muted">Barista</p>
+                        <p class="text-muted">2059035</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="./views/assets/img/team/thu.jpg" alt="..." />
                         <h4>Nguyen Quoc Thu</h4>
-                        <p class="text-muted">Car keeper</p>
+                        <p class="text-muted">2059044</p>
                     </div>
                 </div>
             </div>
