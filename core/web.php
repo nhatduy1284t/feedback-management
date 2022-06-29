@@ -20,6 +20,11 @@ Router::post("user/login", function() {
     $userController->login();
 });
 
+Router::get("user/logout", function() {
+    $usersController = new UserController;
+    $usersController->getLogout();
+});
+
 Router::get("user/create", function() {
     $usersController = new UserController;
     $usersController->getCreate();

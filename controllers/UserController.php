@@ -15,6 +15,11 @@ class UserController extends Controller
         include "./views/login.php";
     }
 
+    public function getLogout() {
+        User::logout();
+        include "./views/home.php";
+    }
+
     public function getCreate()
     {
         include "./views/create_user.php";
@@ -39,8 +44,6 @@ class UserController extends Controller
             $errors['username_err'] = "User doesn't exist!";
             include "views/login.php";
         }
-
-        var_dump($errors);
     }
 
     public function create($user) {

@@ -44,6 +44,14 @@ class User
         $_SESSION['user_id'] = $this->user['id'];
         $_SESSION['logged_in'] = true;
     }
+
+    public static function logout() {
+        unset($_SESSION['user_name']);
+        unset($_SESSION['user_role']);
+        unset($_SESSION['user_id']);
+
+        $_SESSION['logged_in'] = false;
+    }
     
     public function success() {
         if(empty($this->errors)) {

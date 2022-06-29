@@ -2,6 +2,12 @@
 include "inc/head.php";
 ?>
 
+<?php if(!empty($errors)): ?>
+<div class="alert alert-danger">
+    <?php var_dump($errors); ?>
+</div>
+<?php endif; ?>
+
 <!-- CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <!--Fontawesome CDN-->
@@ -42,7 +48,7 @@ include "inc/head.php";
                         <div class="d-flex justify-content-center links">
                             Don't have an account?<a href="<?php echo ROOT."user/create"?>">Sign Up</a>
                         </div>
-                  
+                
                     </div>
                 </div>
             </div>
