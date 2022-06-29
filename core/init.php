@@ -9,7 +9,6 @@ include_once "core/DB.php";
 DB::getInstance();
 DB::connect("localhost", "root", "", "iteccoffee");
 $conn = DB::getConn();
-
 // auto load classes
 spl_autoload_register(function ($className) {
     if (file_exists("core/" . $className . ".php")) {

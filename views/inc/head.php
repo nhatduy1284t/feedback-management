@@ -1,6 +1,5 @@
 <?php
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +27,7 @@
         <div class="container">
             <a class="navbar-brand" href="<?php echo ROOT  ?>">
                 <h3 class="mb-0">Itec Coffee</h3>
-            </a>
+            </a>    
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
@@ -39,7 +38,9 @@
                     <li class="nav-item"><a class="nav-link" href="#portfolio">MENU</a></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
+                    <?php if(true):?>
                     <li class="nav-item"><a class="nav-link" href="<?php echo ROOT . "user/login" ?>">Login</a></li>
+                    <?php endif?>
                 </ul>
             </div>
         </div>

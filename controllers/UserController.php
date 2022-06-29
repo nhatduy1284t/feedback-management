@@ -1,18 +1,22 @@
 <?php
 
-class UserController extends Controller {
+class UserController extends Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
 
         parent::__construct();
     }
 
     // get login page
-    public function getLogin() {
+    public function getLogin()
+    {
         include "./views/login.php";
     }
 
-    public function getCreate() {
+    public function getCreate()
+    {
         include "./views/create_user.php";
     }
 
@@ -22,7 +26,7 @@ class UserController extends Controller {
         //var_dump(password_hash("admin", PASSWORD_DEFAULT));
         //check if user exists
         if($user->getUserByName($_POST['username'])->checkUserExists()) {
-            if($user->validateLogin()->success()) {
+            if($user->validateLogin($_POST)->success()) {
                 $user->login();
                 Router::redirect("");
             }
@@ -37,5 +41,20 @@ class UserController extends Controller {
         }
 
         var_dump($errors);
+    }
+
+    public function create($user) {
+        $userObj = new User($this->conn);
+        $userObj->validateNewUser($user);//After this line, userObj->errors may not be empty
+        if ($userObj->success()) {
+            var_dump("cec");
+            $userObj->createNewUser();
+            if ($userObj->success()) {
+                header("Location: " . ROOT);
+            }
+        } else {
+            $errors = $userObj->errors;
+            include "views/create_user.php";
+        }
     }
 }

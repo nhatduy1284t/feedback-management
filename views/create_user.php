@@ -18,42 +18,42 @@ include "inc/head.php";
 
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="<?php echo ROOT. "user/create"?>" method="POST">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text justify-content-center"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="username">
+                                <input name="username" type="text" class="form-control" placeholder="username">
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text justify-content-center"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input name="email" type="text" class="form-control" placeholder="Email">
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text justify-content-center"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input name="password" type="password" class="form-control" placeholder="Password">
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text justify-content-center"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Password confirm">
+                                <input name="password_confirm" type="password" class="form-control" placeholder="Password confirm">
                             </div>
                             <!-- <div class="row align-items-center remember">
                                 <input type="checkbox">Remember Me
                             </div> -->
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-right login_btn">
+                                <input type="submit" value="Create" class="btn float-right login_btn">
                             </div>
                         </form>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-center links">
-                            <a href="<?php echo ROOT . "/user/login" ?>">Go back to login</a>
+                            <a href="<?php echo ROOT . "user/login" ?>">Go back to login</a>
                         </div>
 
                     </div>
