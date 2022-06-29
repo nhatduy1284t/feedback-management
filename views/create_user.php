@@ -53,7 +53,7 @@ include "inc/head.php";
                     </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-center links">
-                            <a href="<?php echo ROOT . "/user/login" ?>">Go back to login</a>
+                            <a href="<?php echo ROOT . "user/login" ?>">Go back to login</a>
                         </div>
 
                     </div>

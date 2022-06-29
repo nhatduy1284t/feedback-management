@@ -27,7 +27,7 @@
         <div class="container">
             <a class="navbar-brand" href="<?php echo ROOT  ?>">
                 <h3 class="mb-0">Itec Coffee</h3>
-            </a>
+            </a>    
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
