@@ -8,8 +8,6 @@ Router::get("", function() {
 Router::get("home", function() {
     include "./views/home.php";
 });
-
-//================================= USER
 Router::get("user/login", function() {
     $usersController = new UserController;
     $usersController->getLogin();
