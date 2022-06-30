@@ -3,6 +3,7 @@
 
 // home
 Router::get("", function() {
+    //echo "Hello world";
     include "views/home.php";
     //echo "hello world";
     //unset($_SESSION['page_before']);

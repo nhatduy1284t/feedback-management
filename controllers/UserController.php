@@ -28,24 +28,34 @@ class UserController extends Controller
 
     public function login() {
         $user = new User($this->conn);
-        var_dump($_POST['username'], $_POST['password']);
+        //var_dump($_POST['username'], $_POST['password']);
         //var_dump(password_hash("admin", PASSWORD_DEFAULT));
+        //check if input is empty?
+        if($_POST['username'] == "" || $_POST['password'] == "") {
+            $errors['input_empty'] = "Both username and password are required";
+            include "views/login.php";
+        }
         //check if user exists
-        if($user->getUserByName($_POST['username'])->checkUserExists()) {
+        else if($user->getUserByName($_POST['username'])->checkUserExists()) {
             if($user->validateLogin($_POST)->success()) {
                 $user->login();
-                echo "hello world";
+                //$_SESSION['hello'] = "world"; 
+                unset($_SESSION['err_msg']);
                 Router::redirect("");
             }
-            else {
+            //Pass err
+            else { 
                 $errors["password_err"] = "Invalid password";
-                var_dump($user->user);
+                include "views/login.php";
+                //var_dump($user->user);
             }
         }
+        //Username err
         else {
             $errors['username_err'] = "User doesn't exist!";
             include "views/login.php";
         }
+        
     }
 
     public function create($user) {
@@ -53,8 +63,7 @@ class UserController extends Controller
         $userObj->validateNewUser($user);//After this line, userObj->errors may not be empty
         if ($userObj->success()) {
             var_dump("cec");
-            $userObj->createNewUser();
-            if ($userObj->success()) {
+            if($userObj->createNewUser()->success()) {
                 header("Location: " . ROOT);
             }
         } else {
