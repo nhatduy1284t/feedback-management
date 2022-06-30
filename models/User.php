@@ -42,6 +42,7 @@ class User
         $_SESSION['user_name'] = $this->user['username'];
         $_SESSION['user_role'] = $this->user['role'];
         $_SESSION['user_id'] = $this->user['id'];
+        $_SESSION['hello'] = "world";
         $_SESSION['logged_in'] = true;
     }
 

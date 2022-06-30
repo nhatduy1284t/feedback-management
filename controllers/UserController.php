@@ -17,7 +17,8 @@ class UserController extends Controller
 
     public function getLogout() {
         User::logout();
-        include "./views/home.php";
+        //include "./views/home.php";
+        Router::redirect("");
     }
 
     public function getCreate()
@@ -33,6 +34,7 @@ class UserController extends Controller
         if($user->getUserByName($_POST['username'])->checkUserExists()) {
             if($user->validateLogin($_POST)->success()) {
                 $user->login();
+                echo "hello world";
                 Router::redirect("");
             }
             else {

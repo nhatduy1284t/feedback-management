@@ -4,6 +4,9 @@
 // home
 Router::get("", function() {
     include "views/home.php";
+    //echo "hello world";
+    //unset($_SESSION['page_before']);
+    //var_dump($_POST);
 });
 Router::get("home", function() {
     include "./views/home.php";
@@ -31,9 +34,9 @@ Router::get("user/create", function() {
 });
 
 Router::post("user/create", function() {
-
     $userController = new UserController;
     $userController->create($_POST);
+    $userController->login();
 });
 
 // admin
