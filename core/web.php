@@ -25,8 +25,19 @@ Router::post("user/create", function() {
 });
 
 // admin
+
 Router::get("admin/posts",function () {
     include "views/posts_admin.php";
+});
+
+Router::get("admin/posts/create",function () {
+    $postsController = new PostController   ;
+    $postsController->newPost();
+});
+Router::post("admin/posts/create",function () {
+    $postsController = new PostController;
+    $postsController->create();
+    var_dump($_POST);
 });
 
 Router::get("admin/posts/get/{id}",function ($id) {

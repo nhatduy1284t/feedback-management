@@ -96,6 +96,8 @@ include "./views/inc/head.php";
                     </td>
                 </tr> -->
             </tbody>
+           
+       
         </table>
     </div>
 

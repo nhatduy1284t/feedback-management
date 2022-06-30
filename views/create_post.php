@@ -17,13 +17,13 @@ include "inc/head.php";
                         <h3>Complaint Form</h3>
                     </div>
                     <div class="card-body">
-                    <form action="<?= ROOT ?>posts/create" method="post" enctype="multipart/form-data">
+                    <form action="<?= ROOT ?>admin/posts/create" method="post" enctype="multipart/form-data">
                     <div class="form-group" >
-                      <label for="title ">User ID</label>
+                      <label for="ID">User ID</label>
                       <input type="text" name="title" class="form-control" placeholder="ID....">
                     </div>
                     <div class="form-group" >
-                    <label for="title ">Complaint Category</label>
+                    <label for="category ">Complaint Category</label>
                     <select id="cars" name="carlist" form="carform" style="width: 100%;">
                         <option value="volvo">Volvo</option>
                         <option value="saab">Saab</option>
@@ -39,10 +39,10 @@ include "inc/head.php";
                       <label for="body">Complaint Body</label>
                       <textarea name="body" rows="4" class="form-control" placeholder="Complaint body...."></textarea>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="title">Post Image</label>
                       <input type="file" name="image" class="form-control">
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-secondary btn-block btn-lg"><i class="fa fa-plus-square" aria-hidden="true"></i> Create New Complaint</button>
                 </form>
                     </div>
