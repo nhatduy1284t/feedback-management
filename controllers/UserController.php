@@ -17,6 +17,7 @@ class UserController extends Controller
 
     public function getCreate()
     {
+        
         include "./views/create_user.php";
     }
 
@@ -32,6 +33,7 @@ class UserController extends Controller
             }
         } else {
             $errors = $userObj->errors;
+           
             include "views/create_user.php";
         }
     }

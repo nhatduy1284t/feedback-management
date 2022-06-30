@@ -43,9 +43,7 @@ include "inc/head.php";
                                 </div>
                                 <input name="password_confirm" type="password" class="form-control" placeholder="Password confirm">
                             </div>
-                            <!-- <div class="row align-items-center remember">
-                                <input type="checkbox">Remember Me
-                            </div> -->
+                           
                             <div class="form-group">
                                 <input type="submit" value="Create" class="btn float-right login_btn">
                             </div>

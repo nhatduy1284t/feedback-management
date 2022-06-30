@@ -47,6 +47,8 @@ include "./views/inc/head.php";
 
                 </tr>
             </tbody>
+           
+       
         </table>
     </div>
 

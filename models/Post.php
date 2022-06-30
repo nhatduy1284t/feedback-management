@@ -4,6 +4,7 @@ class Post {
     public $conn;
     public $post_title;
     public $post_body;
+    public $post_category;
     public $post_img;
     public $user_id;
     public $post_id;
@@ -16,8 +17,8 @@ class Post {
     }
 
     public function fetchPost($id) {
-        $sql = "SELECT posts.*, username
-                FROM posts
+        $sql = "SELECT post.*, username
+                FROM post
                 JOIN users ON users.id = posts.user_id
                 WHERE posts.id = ?";
         $stmt = $this->conn->prepare($sql);
@@ -38,12 +39,12 @@ class Post {
     }
 
     public function create() {
-        $user_id = 1;
+        $this->user_id = 1;
         $post_img = "default";
-        $sql = "INSERT INTO posts (title, body, user_id, post_img)
+        $sql = "INSERT INTO post (title, body,category,user_id)
                 VALUES(?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssis", $this->post_title, $this->post_body, $user_id, $post_img);
+        $stmt->bind_param("sssi", $this->post_title, $this->post_body,$this->post_category,$this->user_id);
         $stmt->execute();
         if($stmt->affected_rows === 1) {
             $this->post_id = $stmt->insert_id;
@@ -64,6 +65,7 @@ class Post {
     public function validatePost($post) {
         $this->post_title = htmlspecialchars($post['title']);
         $this->post_body = htmlspecialchars($post['body']);
+        $this->post_category = htmlspecialchars($post['category']);
         if(empty($this->post_title) || empty($this->post_body)) {
             $this->errors['new_post_err'] = "Post fields cannot be empty!";
         }
