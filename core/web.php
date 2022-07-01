@@ -3,7 +3,11 @@
 
 // home
 Router::get("", function() {
+    //echo "Hello world";
     include "views/home.php";
+    //echo "hello world";
+    //unset($_SESSION['page_before']);
+    //var_dump($_POST);
 });
 Router::get("home", function() {
     include "./views/home.php";
@@ -13,15 +17,25 @@ Router::get("user/login", function() {
     $usersController->getLogin();
 });
 
+Router::post("user/login", function() {
+    $userController = new UserController;
+    $userController->login();
+});
+
+Router::get("user/logout", function() {
+    $usersController = new UserController;
+    $usersController->getLogout();
+});
+
 Router::get("user/create", function() {
     $usersController = new UserController;
     $usersController->getCreate();
 });
 
 Router::post("user/create", function() {
-
     $userController = new UserController;
     $userController->create($_POST);
+    $userController->login();
 });
 
 // admin

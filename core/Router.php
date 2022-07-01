@@ -59,4 +59,8 @@ class Router {
         }
     }
 
+    public static function redirect($dest) {
+        header("Location: " . ROOT . $dest);
+    }
+
 }

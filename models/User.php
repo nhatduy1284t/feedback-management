@@ -31,6 +31,37 @@ class User
         return $this;
     }
 
+    //check if the password is correct
+    public function validateLogin() {
+        if(!password_verify($_POST['password'], $this->user['password']))
+            $this->errors['password_err'] = "Invalid password!";
+        return $this;
+    }
+
+    public function login() {
+        $_SESSION['user_name'] = $this->user['username'];
+        $_SESSION['user_role'] = $this->user['role'];
+        $_SESSION['user_id'] = $this->user['id'];
+        $_SESSION['logged_in'] = true;
+    }
+
+    public static function logout() {
+        unset($_SESSION['user_name']);
+        unset($_SESSION['user_role']);
+        unset($_SESSION['user_id']);
+        unset($_SESSION['hello']);
+        $_SESSION['logged_in'] = false;
+    }
+    
+    public function success() {
+        if(empty($this->errors)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     // check if user exists return $this [create err if no user]
     public function checkUserExists()
     {
@@ -41,31 +72,6 @@ class User
         }
     }
 
-    // validate user 
-    public function validateLogin($req)
-    {
-        if (!password_verify($req['password'], $this->user['password_hash'])) {
-            $this->errors['password_err'] = "Invalid password!";
-        }
-        return $this;
-    }
-
-    public function success()
-    {
-        if (empty($this->errors)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function login()
-    {
-        $_SESSION['user_name'] = $this->user['username'];
-        $_SESSION['user_role'] = $this->user['role'];
-        $_SESSION['logged_in'] = true;
-        $_SESSION['user_id'] = $this->user['id'];
-    }
 
     public function create()
     {

@@ -22,6 +22,7 @@
 </head>
 
 <body id="page-top">
+    <?php var_dump($_SESSION); ?>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -38,9 +39,11 @@
                     <li class="nav-item"><a class="nav-link" href="#portfolio">MENU</a></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
-                    <?php if(true):?>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo ROOT . "user/login" ?>">Login</a></li>
-                    <?php endif?>
+                    <?php if($_SESSION['logged_in'] == true): ?>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo ROOT . "user/logout" ?>">Logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo ROOT . "user/login" ?>">Login</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
