@@ -18,37 +18,44 @@ include "./views/inc/head.php";
                 </tr>
             </thead>
             <tbody>
-                <tr class="pointer">
-                    <td>
-                        #1
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">nhatduy1284t</p>
-                    </td>
-                    <td>
-                        <p class="fw-normal mb-1">
-                            <a href="<?php echo ROOT . "admin/posts/get/1" ?>" class="text-dark ">Drink is so expensive</a>
-                        </p>
-                    </td>
-                    <td>
-                        Service
-                    </td>
-                    <td class="text-warning">
-                        Pending
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                        <button type="button" class="btn btn-success">
-                            <i class="fa fa-check"></i>
-                        </button>
-                    </td>
+                <?php foreach ($posts as $post) : ?>
 
-                </tr>
+                    <tr>
+                        <td>
+                            <?= $post['id'] ?>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1"><?= $post['username'] ?></p>
+                        </td>
+                        <td>
+                            <p class="fw-normal mb-1">
+                                <a href="<?php echo ROOT . "admin/posts/get/" . $post['id'] ?>" class="text-dark "><?= $post['title'] ?></a>
+                            </p>
+                        </td>
+                        <td>
+                            Service
+                        </td>
+                        <td class="text-warning">
+                            <?php if ($post['status'] == 0) {
+                                echo "Pending";
+                            } else {
+                                echo "Completed";
+                            } ?>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                            <button type="button" class="btn btn-success">
+                                <i class="fa fa-check"></i>
+                            </button>
+                        </td>
+
+                    </tr>
+                <?php endforeach ?>
             </tbody>
-           
-       
+
+
         </table>
     </div>
 

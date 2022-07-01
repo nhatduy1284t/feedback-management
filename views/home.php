@@ -1,109 +1,109 @@
 <?php
 include "./views/inc/head.php";
- ?>
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container">
-            <div class="masthead-subheading">Welcome To Itec Coffee!</div>
-            <div class="masthead-heading text-uppercase">Help us be better</div>
-            <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
+?>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Welcome To Itec Coffee!</div>
+        <div class="masthead-heading text-uppercase">Help us be better</div>
+        <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
+    </div>
+</header>
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Products</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
-    </header>
-    <!-- Services-->
-    <section class="page-section" id="services">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Products</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <!-- <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i> -->
+                    <i class="fa fa-coffee fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Coffee</h4>
+                <p class="text-muted">All coffee must meet Itec Coffee standards of high quality.</p>
             </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <!-- <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i> -->
-                        <i class="fa fa-coffee fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">Coffee</h4>
-                    <p class="text-muted">All coffee must meet Itec Coffee standards of high quality.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-leaf fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">Tea</h4>
-                    <p class="text-muted">Beside our delicious coffee, we also have a wide variety of teas for you to enjoy.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-cheese fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">Cake</h4>
-                    <p class="text-muted">Taste good with coffee and tea.</p>
-                </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-leaf fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Tea</h4>
+                <p class="text-muted">Beside our delicious coffee, we also have a wide variety of teas for you to enjoy.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-cheese fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">Cake</h4>
+                <p class="text-muted">Taste good with coffee and tea.</p>
             </div>
         </div>
-    </section>
-    <!-- Portfolio Grid-->
-    <section class="page-section bg-light" id="portfolio">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">MENU</h2>
-                <h3 class="section-subheading text-muted">Top preferred</h3>
+    </div>
+</section>
+<!-- Portfolio Grid-->
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">MENU</h2>
+            <h3 class="section-subheading text-muted">Top preferred</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <div class="portfolio-link" href="#portfolioModal1">
+                        <!-- <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div> -->
+                        <img class="img-fluid" src="https://images.unsplash.com/photo-1587080413959-06b859fb107d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=592&q=80" alt="..." />
+                    </div>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Expresso</div>
+                        <div class="portfolio-caption-subheading text-muted">Deep</div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 1-->
-                    <div class="portfolio-item">
-                        <div class="portfolio-link" href="#portfolioModal1">
-                            <!-- <div class="portfolio-hover">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <div class="portfolio-link" href="#portfolioModal2">
+                        <!-- <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div> -->
-                            <img class="img-fluid" src="https://images.unsplash.com/photo-1587080413959-06b859fb107d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=592&q=80" alt="..." />
-                        </div>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Expresso</div>
-                            <div class="portfolio-caption-subheading text-muted">Deep</div>
-                        </div>
+                        <img class="img-fluid" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="..." />
+                    </div>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Royal Tea</div>
+                        <div class="portfolio-caption-subheading text-muted">Peaceful</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 2-->
-                    <div class="portfolio-item">
-                        <div class="portfolio-link" href="#portfolioModal2">
-                            <!-- <div class="portfolio-hover">
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <div class="portfolio-link" href="#portfolioModal3">
+                        <!-- <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div> -->
-                            <img class="img-fluid" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="..." />
-                        </div>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Royal Tea</div>
-                            <div class="portfolio-caption-subheading text-muted">Peaceful</div>
-                        </div>
+                        <img class="img-fluid" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80" alt="..." />
+                    </div>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Cookies</div>
+                        <div class="portfolio-caption-subheading text-muted">Delicious</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 3-->
-                    <div class="portfolio-item">
-                        <div class="portfolio-link" href="#portfolioModal3">
-                            <!-- <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div> -->
-                            <img class="img-fluid" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80" alt="..." />
-                        </div>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Cookies</div>
-                            <div class="portfolio-caption-subheading text-muted">Delicious</div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
-            </div>
         </div>
-    </section>
-    <!-- About-->
-    <!-- <section class="page-section" id="about">
+    </div>
+</section>
+<!-- About-->
+<!-- <section class="page-section" id="about">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
@@ -164,46 +164,46 @@ include "./views/inc/head.php";
                 </ul>
             </div>
         </section> -->
-    <!-- Team-->
-    <section class="page-section " id="team">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                <!-- <h3 class="section-subheading text-muted">Staff</h3> -->
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="./views/assets/img/team/duy.jpg" alt="..." />
-                        <h4>Trinh Nhat Duy</h4>
-                        <p class="text-muted">2059007</p>
+<!-- Team-->
+<section class="page-section " id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+            <!-- <h3 class="section-subheading text-muted">Staff</h3> -->
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="./views/assets/img/team/duy.jpg" alt="..." />
+                    <h4>Trinh Nhat Duy</h4>
+                    <p class="text-muted">2059007</p>
 
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="./views/assets/img/team/quan.jpg" alt="..." />
-                        <h4>Nguyen Khac Anh Quan</h4>
-                        <p class="text-muted">2059035</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="./views/assets/img/team/thu.jpg" alt="..." />
-                        <h4>Nguyen Quoc Thu</h4>
-                        <p class="text-muted">2059044</p>
-                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <p class="large text-muted">Itec Coffee serves you the best service and best drinks from our warm-hearted staff. </p>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="./views/assets/img/team/quan.jpg" alt="..." />
+                    <h4>Nguyen Khac Anh Quan</h4>
+                    <p class="text-muted">2059035</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="./views/assets/img/team/thu.jpg" alt="..." />
+                    <h4>Nguyen Quoc Thu</h4>
+                    <p class="text-muted">2059044</p>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Clients-->
-    <!-- <div class="py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <p class="large text-muted">Itec Coffee serves you the best service and best drinks from our warm-hearted staff. </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Clients-->
+<!-- <div class="py-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-3 col-sm-6 my-3">
@@ -221,19 +221,20 @@ include "./views/inc/head.php";
                 </div>
             </div>
         </div> -->
-    <!-- Contact-->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <div class="text-center">
-                <button class="btn btn-primary btn-xl text-uppercase">Write your opinions</button>
-                <h3 class="section-subheading text-muted">Make us better</h3>
-            </div>
-            <form action="">
-
-            </form>
-
+<!-- Contact-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <a href="<?= ROOT. "user/post/create"?>"><button class="btn btn-primary btn-xl text-uppercase mb-3">Write your opinions</button>
+            </a>
+            <h3 class="section-subheading text-muted">Make us better</h3>
         </div>
-    </section>
+        <form action="">
+
+        </form>
+
+    </div>
+</section>
 
 
 <?php
