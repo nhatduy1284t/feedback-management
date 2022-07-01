@@ -38,26 +38,31 @@ Router::post("user/create", function() {
     $userController->login();
 });
 
-// admin
-
-Router::get("admin/posts",function () {
-    include "views/posts_admin.php";
-});
-
-Router::get("admin/posts/create",function () {
+Router::get("user/post/create",function () {
     $postsController = new PostController   ;
-    $postsController->newPost();
+    $postsController->getCreate();
 });
-Router::post("admin/posts/create",function () {
-    $postsController = new PostController;
-    $postsController->create();
-    var_dump($_POST);
+
+Router::post("user/post/create",function () {
+    $postController = new PostController;
+    $postController->create();
+
+});
+
+
+// admin
+Router::get("admin/posts",function () {
+    $postController = new PostController;
+    $postController->getPostsAdmin();
+
 });
 
 Router::get("admin/posts/get/{id}",function ($id) {
     $postController = new PostController;
     $postController->getPost($id);
 });
+
+
 // after running registry if no matches are found: 404
 if(Router::$found === false) {
     include "views/_404.php";

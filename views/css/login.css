@@ -7,7 +7,7 @@ h3 {
 }
 header.masthead {
   height: 100vh;
-  padding-top: 12rem!important;
+  padding-top: 12rem !important;
 }
 /* Made with love by Mutiullah Samim*/
 
@@ -96,9 +96,8 @@ input:focus {
   margin-left: 4px;
 }
 
-
 .login .card-footer {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 .create {
@@ -116,4 +115,20 @@ input:focus {
 
 .login-err p {
   margin: 0;
+}
+
+.create__post__user .masthead {
+  height: 100%;
+  padding-top: 7rem!important;
+  padding-bottom: 0;
+}
+
+.create__post__user .btn-send {
+  background-color: #212529;
+  color: #ffc800;
+  border:none;
+  font-weight: 600;
+} 
+.create__post__user header.masthead {
+  background-attachment: fixed;
 }
