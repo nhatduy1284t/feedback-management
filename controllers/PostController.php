@@ -38,18 +38,26 @@ class PostController extends Controller
         $postObj = new Post($this->conn);
         $postObj->fetchPost($id);
         $post = $postObj->post;
-  
+
         include "./views/post_admin.php";
     }
     public function getPostsAdmin()
     {
         $postObj = new Post($this->conn);
-        $postObj->fetchPosts();
+        //check if it is normal user
+        if ($_SESSION['user_role'] === 0) {
+            $postObj->fetchPostsByUserId($_SESSION['user_id']);
+        } else {
+            $postObj->fetchPosts();
+        }
+
         $posts = $postObj->posts;
         $posts_one_page = [];
         $status = "all";
         $category = "all";
         $post_start_index = 0;
+
+
 
         //handle filter
         if (isset($_GET['filter_status']) || isset($_GET['filter_category'])) {
@@ -73,7 +81,7 @@ class PostController extends Controller
                 }
             }
         }
-   
+
         $num_pages = $postObj->getPageNum(count($posts));
 
         //handle pagination
@@ -105,7 +113,9 @@ class PostController extends Controller
 
     public function responsePost($response)
     {
-        $postObj = new Post($this->conn);
-        $postObj->responsePost($response);
+        if ($_SESSION['user_role'] === 1) {
+            $postObj = new Post($this->conn);
+            $postObj->responsePost($response);
+        }
     }
 }

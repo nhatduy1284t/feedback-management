@@ -9,3 +9,7 @@
 .admin-post {
     margin-top:50px;
 }
+
+.admin-post .message {
+    font-size: 13px;
+}

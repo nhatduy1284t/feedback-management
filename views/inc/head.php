@@ -51,7 +51,7 @@ if (empty($_GET) || $_GET['url'] === "home") {
                                     <?= $_SESSION['user_name'] ?>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item text-capitalize" href="<?php echo ROOT . "admin/posts" ?>">Posts</a>
+                                    <a class="dropdown-item text-capitalize" href="<?php echo ROOT . "admin/posts" ?>">Feedbacks</a>
                                     <a class="dropdown-item text-capitalize" href="<?php echo ROOT . "user/logout" ?>">Logout</a>
                                 </div>
                             </div>

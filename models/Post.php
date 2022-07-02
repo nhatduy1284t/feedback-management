@@ -50,12 +50,29 @@ class Post
         if ($result->num_rows === 1) {
             $this->post = $result->fetch_assoc();
             $this->post['images'] = $this->getImagesUrlFromPost($id);
-            
         } else {
             $this->errors['fetch_err'] = "Couldn't fetch post!";
         }
 
         return $this;
+    }
+
+    public function fetchPostsByUserId($user_id)
+    {
+        $sql = "SELECT p.*,u.username
+        FROM post p
+        JOIN user u ON p.user_id=u.id 
+        WHERE p.user_id = ?
+       ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i",$user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows !== 0) {
+            $this->posts = $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            $this->errors['fetch_err'] = "Couldn't fetch posts!";
+        }
     }
     public function fetchPosts()
     {

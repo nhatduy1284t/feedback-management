@@ -32,30 +32,56 @@ include "./views/inc/head.php";
                             <?php endforeach ?>
                         </div>
                         <hr class="mb40">
-                        <?php if ($post['status'] == 1) : ?>
-                            <p class="alert alert-success"><?php echo "This post is already completed, complete again to change the message" ?> </p>
+                        <!-- ADMIN -->
+                        <?php if ($_SESSION['user_role'] === 1) : ?>
+
+                            <?php if ($post['status'] == 1) : ?>
+                                <p class="alert alert-success"><?php echo "This post is already completed, complete again to change the message" ?> </p>
+                            <?php else : ?>
+                                <p class="alert alert-warning"><?php echo "This post is still pending" ?></p>
+                            <?php endif ?>
+                            <form action="<?= ROOT . "admin/posts/response" ?>" role="form" method="POST">
+                                <div class="form-group ">
+                                    <label>Message</label>
+                                    <textarea name="message" class="form-control mt-2" rows="5" placeholder="<?php
+                                                                                                                if ($post['status'] == 0) {
+                                                                                                                    echo "Send message to the customer.";
+                                                                                                                } else if ($post['post_message'] == "") {
+                                                                                                                    echo "Your message is empty";
+                                                                                                                } else {
+                                                                                                                    echo "Your current message: " . $post['post_message'];
+                                                                                                                }
+                                                                                                                ?>"></textarea>
+                                </div>
+                                <input type="hidden" name="post_id" value="<?= $post['id'] ?>" />
+                                <div class="d-flex justify-content-end mt-2">
+                                    <!-- <button type="button" class="btn-reject btn btn-danger btn-lg">Reject</button> -->
+                                    <button type="submit" class="btn-approve btn btn-success btn-lg">Complete</button>
+                                </div>
+                            </form>
                         <?php else : ?>
-                            <p class="alert alert-warning"><?php echo "This post is still pending" ?></p>
-                        <?php endif ?>
-                        <form action="<?= ROOT . "admin/posts/response" ?>" role="form" method="POST">
+                            <!-- NORMAL USER -->
+                            <?php if ($post['status'] == 1) : ?>
+                                <p class="alert alert-success"><?php echo "Your post is seen by us" ?> </p>
+                            <?php else : ?>
+                                <p class="alert alert-warning"><?php echo "Your post is still pending" ?></p>
+                            <?php endif ?>
+
                             <div class="form-group ">
-                                <label>Message</label>
-                                <textarea name="message" class="form-control mt-2" rows="5" placeholder="<?php
-                                                                                                            if ($post['status'] == 0) {
-                                                                                                                echo "Send message to the customer.";
-                                                                                                            } else if ($post['post_message'] == "") {
-                                                                                                                echo "Your message is empty";
-                                                                                                            } else {
-                                                                                                                echo "Your current message: " . $post['post_message'];
-                                                                                                            }
-                                                                                                            ?>"></textarea>
+                                <label class="message">Message from us</label>
+                                <p class="form-control ">
+                                    <?php
+                                    if ($post['post_message'] == "") {
+                                        echo "(You don't have any message)";
+                                    } else {
+                                        echo "Your current message: " . $post['post_message'];
+                                    }
+                                    ?>
+                                </p>
                             </div>
-                            <input type="hidden" name="post_id" value="<?= $post['id'] ?>" />
-                            <div class="d-flex justify-content-end mt-2">
-                                <!-- <button type="button" class="btn-reject btn btn-danger btn-lg">Reject</button> -->
-                                <button type="submit" class="btn-approve btn btn-success btn-lg">Complete</button>
-                            </div>
-                        </form>
+
+
+                        <?php endif ?>
                     </div>
                 </article>
                 <!-- post article-->
