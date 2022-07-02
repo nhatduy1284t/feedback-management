@@ -1,5 +1,6 @@
 <?php
 include "inc/head.php";
+
 ?>
 
 <?php if(!empty($errors)): ?>

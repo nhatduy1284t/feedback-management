@@ -62,6 +62,12 @@ Router::get("admin/posts/get/{id}",function ($id) {
     $postController->getPost($id);
 });
 
+Router::post("admin/posts/response",function () {
+    $postController = new PostController;
+    $postController->responsePost($_POST);
+
+});
+
 
 // after running registry if no matches are found: 404
 if(Router::$found === false) {

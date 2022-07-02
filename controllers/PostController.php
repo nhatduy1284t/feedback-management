@@ -16,16 +16,14 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post($this->conn);
-        // var_dumps($_FILES);
-        var_dumps($_POST);
+
         if ($post->validatePost($_POST, $_FILES)->success()) {
-            var_dump("SUCCESS");
+
             if ($post->createNewPost()->success()) {
-                //     Messenger::setMsg("New post created!", "success");
-                //     header("Location: " . ROOT . "posts/get/" . $post->post_id);
+                // Messenger::setMsg("New post created!", "success");
+                header("Location: " . ROOT);
             }
         }
-
         // var_dumps($post->errors);
         //  else {
         //     echo "this post has an error";
@@ -40,6 +38,7 @@ class PostController extends Controller
         $postObj = new Post($this->conn);
         $postObj->fetchPost($id);
         $post = $postObj->post;
+  
         include "./views/post_admin.php";
     }
     public function getPostsAdmin()
@@ -47,11 +46,66 @@ class PostController extends Controller
         $postObj = new Post($this->conn);
         $postObj->fetchPosts();
         $posts = $postObj->posts;
+        $posts_one_page = [];
+        $status = "all";
+        $category = "all";
+        $post_start_index = 0;
+
+        //handle filter
+        if (isset($_GET['filter_status']) || isset($_GET['filter_category'])) {
+            $status = ($_GET['filter_status']);
+            $category = $_GET['filter_category'];
+            $total = count($posts);
+            if ($status !== "all") {
+                $status = (int)$status;
+                for ($i = $total - 1; $i >= 0; $i--) {
+                    if ($status !== $posts[$i]['status']) {
+                        array_splice($posts, $i, 1);
+                    }
+                }
+            }
+            $total = count($posts);
+            if ($category !== "all") {
+                for ($i = $total - 1; $i >= 0; $i--) {
+                    if ($category !== $posts[$i]['category']) {
+                        array_splice($posts, $i, 1);
+                    }
+                }
+            }
+        }
+   
+        $num_pages = $postObj->getPageNum(count($posts));
+
+        //handle pagination
+        if (isset($_GET['start'])) {
+            $post_start_index = $_GET['start'];
+            var_dump($post_start_index);
+        }
+        $total = count($posts);
+        $range = $post_start_index + 10;
+
+        if ($range < $total) {
+            for ($i = $post_start_index; $i < $range; $i++) {
+                array_push($posts_one_page, $posts[$i]);
+            };
+        } else {
+            for ($i = $post_start_index; $i < $total; $i++) {
+                array_push($posts_one_page, $posts[$i]);
+            };
+        }
+        $posts = $posts_one_page;
+
         include "views/posts_admin.php";
     }
 
     public function getCreate()
     {
         include "views/create_post.php";
+    }
+
+    public function responsePost($response)
+    {
+        $postObj = new Post($this->conn);
+        $postObj->responsePost($response);
     }
 }

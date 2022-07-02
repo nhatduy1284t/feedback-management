@@ -1,5 +1,6 @@
 <?php
 include "./views/inc/head.php";
+
 ?>
 <link href="<?php echo ROOT . "views/css/posts_admin.css" ?>" rel="stylesheet" type="text/css">
 <link href="<?php echo ROOT . "views/css/post_admin.css" ?>" rel="stylesheet" type="text/css">
@@ -12,29 +13,47 @@ include "./views/inc/head.php";
             <div class="col-md-12 mb40">
                 <article>
                     <div class="post-content">
-                        <h3><?= $post['title']?></h3>
+                        <h3><?= $post['title'] ?></h3>
+                        <p class="text-capitalize">Category: <span class="text-info"><?= $post['category'] ?></span></p>
                         <ul class="post-meta list-inline">
                             <li class="list-inline-item">
-                                <i class="fa fa-user "></i> <a href="#"><?= $post['username']?></a>
+                                <i class="fa fa-user "></i> <a><?= $post['username'] ?></a>
                             </li>
                             <li class="list-inline-item">
-                                <i class="fa fa-calendar"></i> <a href="#"><?= $post['created_date']?></a>
+                                <i class="fa fa-calendar"></i> <a><?= $post['created_date'] ?></a>
                             </li>
                         </ul>
-                        <p><?= $post['body']?></p>
-
+                        <p><?= $post['body'] ?></p>
+                        <div class="images row">
+                            <?php foreach ($post['images'] as $image_url) : ?>
+                                <div class="col-4 px-0">
+                                    <img class="user-image" src="<?= PUBLIC_ROOT . $image_url['url'] ?>" alt="">
+                                </div>
+                            <?php endforeach ?>
+                        </div>
                         <hr class="mb40">
-                        <h4 class="mb40 text-uppercase font500">Response</h4>
-                        <form role="form">
-
-
+                        <?php if ($post['status'] == 1) : ?>
+                            <p class="alert alert-success"><?php echo "This post is already completed, complete again to change the message" ?> </p>
+                        <?php else : ?>
+                            <p class="alert alert-warning"><?php echo "This post is still pending" ?></p>
+                        <?php endif ?>
+                        <form action="<?= ROOT . "admin/posts/response" ?>" role="form" method="POST">
                             <div class="form-group ">
                                 <label>Message</label>
-                                <textarea class="form-control mt-2" rows="5" placeholder="Send message to the customer."></textarea>
+                                <textarea name="message" class="form-control mt-2" rows="5" placeholder="<?php
+                                                                                                            if ($post['status'] == 0) {
+                                                                                                                echo "Send message to the customer.";
+                                                                                                            } else if ($post['post_message'] == "") {
+                                                                                                                echo "Your message is empty";
+                                                                                                            } else {
+                                                                                                                echo "Your current message: " . $post['post_message'];
+                                                                                                            }
+                                                                                                            ?>"></textarea>
                             </div>
+                            <input type="hidden" name="post_id" value="<?= $post['id'] ?>" />
                             <div class="d-flex justify-content-end mt-2">
                                 <!-- <button type="button" class="btn-reject btn btn-danger btn-lg">Reject</button> -->
-                                <button type="button" class="btn-approve btn btn-success btn-lg">Complete</button>
+                                <button type="submit" class="btn-approve btn btn-success btn-lg">Complete</button>
                             </div>
                         </form>
                     </div>
