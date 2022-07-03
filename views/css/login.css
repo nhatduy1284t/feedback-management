@@ -6,8 +6,9 @@ h3 {
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 header.masthead {
-  height: 100vh;
-  padding-top: 12rem !important;
+
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
 }
 /* Made with love by Mutiullah Samim*/
 
@@ -17,7 +18,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
+  min-height: 100%;
   font-family: 'Numans', sans-serif;
+}
+
+.login, .login header.masthead {
+  height: 100%;
 }
 
 .container {
@@ -101,7 +107,7 @@ input:focus {
 }
 
 .create {
-  height:100%;
+  /* height:100%; */
 }
 
 .login-err {
@@ -135,6 +141,7 @@ input:focus {
 
 header.vh-110 {
   height: 110vh !important; 
+  /* height: 100%; */
 }
 
 ul.signup-err {
