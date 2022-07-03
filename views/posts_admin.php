@@ -16,7 +16,6 @@ include "./views/inc/head.php";
                         <?php
                         if ($status !== "all") :
                         ?>
-                            <?php var_dump("cc"); ?>
                             <option disabled>Status</option>
                             <option value="all">All</option>
                             <option <?php echo (!($status === 0) ?:  "selected") ?> value="0" class="text-warning">Pending</option>
@@ -147,6 +146,20 @@ include "./views/inc/head.php";
                     <?php endforeach ?>
                 </tbody>
             </table>
+            <nav aria-label="..." class="d-flex justify-content-end">
+                <ul class="pagination mt-3">
+                    <?php for ($i = 0; $i < $num_pages; $i++) {
+                        $page = $i + 1;
+                        $start_index_post = $i * 10;
+                        $classActive = "";
+                        if ($start_index_post == $post_start_index) {
+                            $classActive = "active";
+                        }
+                        echo "<li class='page-item $classActive'>
+                    <a class='page-link' href='posts?start=$start_index_post&filter_category=$category&filter_status=$status'>$page</a> </li>";
+                    } ?>
+                </ul>
+            </nav>
         <?php endif ?>
 
     </div>
