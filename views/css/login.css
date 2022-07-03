@@ -26,7 +26,7 @@ body {
 }
 
 .card {
-  height: 370px;
+  /* height: 370px; */
   margin-top: auto;
   margin-bottom: auto;
   width: 400px;
@@ -131,4 +131,23 @@ input:focus {
 } 
 .create__post__user header.masthead {
   background-attachment: fixed;
+}
+
+header.vh-110 {
+  height: 110vh !important; 
+}
+
+ul.signup-err {
+  display: flex;
+  flex-flow: column;
+  text-align: initial;
+  font-size: 14px;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 2px;
+}
+
+div.signup-err {
+  margin-top: 60px !important;
+  padding: 0.75rem 0;
 }

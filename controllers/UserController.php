@@ -22,8 +22,7 @@ class UserController extends Controller
     }
 
     public function getCreate()
-    {
-        
+    {   
         include "./views/create_user.php";
     }
 
@@ -63,14 +62,16 @@ class UserController extends Controller
         $userObj = new User($this->conn);
         $userObj->validateNewUser($user);//After this line, userObj->errors may not be empty
         if ($userObj->success()) {
-            var_dump("cec");
+            //var_dump("cec");
             if($userObj->createNewUser()->success()) {
                 header("Location: " . ROOT);
             }
+            return true;
         } else {
             $errors = $userObj->errors;
-           
+            //var_dump($errors);
             include "views/create_user.php";
+            return false;
         }
     }
 }

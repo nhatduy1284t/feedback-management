@@ -9,7 +9,7 @@ include "inc/head.php";
 <link href="<?php echo ROOT . "views/css/login.css" ?>" rel="stylesheet" type="text/css" />
 
 <div class="create">
-    <header class="masthead">
+    <header class="masthead vh-110">
         <div class="container">
             <div class="d-flex justify-content-center h-100">
                 <div class="card">
@@ -43,10 +43,17 @@ include "inc/head.php";
                                 </div>
                                 <input name="password_confirm" type="password" class="form-control" placeholder="Password confirm">
                             </div>
-                           
                             <div class="form-group">
                                 <input type="submit" value="Create" class="btn float-right login_btn">
                             </div>
+                            <?php if(!empty($errors)): ?>
+                                <div class="alert alert-danger form-group signup-err">
+                                    <ul class="signup-err">
+                                        <?php foreach($errors as $error):?>
+                                            <li><?php echo $error; ?></li>
+                                        <?php endforeach; ?> 
+                                    </ul>
+                            <?php endif?>
                         </form>
                     </div>
                     <div class="card-footer">

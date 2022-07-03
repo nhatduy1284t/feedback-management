@@ -34,8 +34,9 @@ Router::get("user/create", function() {
 
 Router::post("user/create", function() {
     $userController = new UserController;
-    $userController->create($_POST);
-    $userController->login();
+    if($userController->create($_POST)) {
+        $userController->login();
+    }
 });
 
 Router::get("user/post/create",function () {

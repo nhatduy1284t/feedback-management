@@ -99,12 +99,21 @@ class User
         $this->user_password = $user['password'];
         $this->user_password_confirm = $user['password_confirm'];
         // (3) if statements to check username (should not exist), email is valid, 
+        // Check if username's length is enough?
+        if(strlen($this->user_name) < 4 || strlen($this->user_name) > 20) {
+            $this->errors['create_username_err'] = "Username should have 4-20 characters!";
+        }
+        //Check if user is exist?
         if ($this->getUserByName($this->user_name)->checkUserExists()) {
             $this->errors['create_username_err'] = "This username is already taken!";
         }
-        //validate email 
+        //validate email
         if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
             $this->errors['create_email_err'] = "Invalid email!";
+        }
+        //check if password's length is enough?
+        if(strlen($this->user_password) < 4 || strlen($this->user_password) > 30) {
+            $this->errors['create_password_err'] = "Password should have 4-30 characters!";
         }
         // // passwords match && !empty
         if ($this->user_password !== $this->user_password_confirm || empty($this->user_password)) {
