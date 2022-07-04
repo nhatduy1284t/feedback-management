@@ -18,7 +18,7 @@ include "inc/head.php";
 
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo ROOT. "user/create"?>" method="POST">
+                        <form action="<?php echo ROOT . "user/create" ?>" method="POST">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text justify-content-center"><i class="fas fa-user"></i></span>
@@ -44,16 +44,17 @@ include "inc/head.php";
                                 <input name="password_confirm" type="password" class="form-control" placeholder="Password confirm">
                             </div>
                             <div class="form-group">
+                                <?php CSRF::outputToken(); ?>
                                 <input type="submit" value="Create" class="btn float-right login_btn">
                             </div>
-                            <?php if(!empty($errors)): ?>
+                            <?php if (!empty($errors)) : ?>
                                 <div class="alert alert-danger form-group signup-err">
                                     <ul class="signup-err">
-                                        <?php foreach($errors as $error):?>
+                                        <?php foreach ($errors as $error) : ?>
                                             <li><?php echo $error; ?></li>
-                                        <?php endforeach; ?> 
+                                        <?php endforeach; ?>
                                     </ul>
-                            <?php endif?>
+                                <?php endif ?>
                         </form>
                     </div>
                     <div class="card-footer">

@@ -96,9 +96,9 @@ include "./views/inc/head.php";
                         $start_index_post = $i * 10;
                         $classActive = "";
                         if ($start_index_post == $post_start_index) {
-                            $classActive = "active";
+                            $classActive = "active ";
                         }
-                        echo "<li class='page-item $classActive'>
+                        echo "<li class='page-item $classActive '>
                     <a class='page-link' href='posts?start=$start_index_post&filter_category=$category&filter_status=$status'>$page</a> </li>";
                     } ?>
                 </ul>

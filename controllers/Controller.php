@@ -1,15 +1,15 @@
-<?php 
+<?php
 
-class Controller {
+class Controller
+{
     //properties
     public $conn;
 
     // constructor
     public function __construct()
     {
-        // bring db conn into the controller class
+
+        CSRF::checkToken($_POST);
         $this->conn = DB::getConn();
     }
-
-
 }

@@ -56,6 +56,7 @@ include "./views/inc/head.php";
                                 <input type="hidden" name="post_id" value="<?= $post['id'] ?>" />
                                 <div class="d-flex justify-content-end mt-2">
                                     <!-- <button type="button" class="btn-reject btn btn-danger btn-lg">Reject</button> -->
+                                    <?php CSRF::outputToken();?>
                                     <button type="submit" class="btn-approve btn btn-success btn-lg">Complete</button>
                                 </div>
                             </form>

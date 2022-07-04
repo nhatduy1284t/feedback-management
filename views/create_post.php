@@ -43,6 +43,7 @@
                   <label for="title">Image</label>
                   <input type="file" name="files[]" class="form-control" multiple>
                 </div>
+                <?php CSRF::outputToken(); ?>
                 <button type="submit" class="btn-send btn btn-secondary btn-block btn-lg"> Send</button>
               </form>
             </div>
