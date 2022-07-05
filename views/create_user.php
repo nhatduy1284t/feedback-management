@@ -54,7 +54,8 @@ include "inc/head.php";
                                             <li><?php echo $error; ?></li>
                                         <?php endforeach; ?>
                                     </ul>
-                                <?php endif ?>
+                                </div>
+                            <?php endif ?>
                         </form>
                     </div>
                     <div class="card-footer">

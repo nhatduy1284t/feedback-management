@@ -151,9 +151,24 @@ class Post
         $this->post_category = htmlspecialchars($post['category']);
         $this->post_status = 0;
         $this->user_id = $_SESSION['user_id'];
-        if (empty($this->post_title) || empty($this->post_body)) {
-            $this->errors['post_empty_err'] = "Post title or content cannot be empty!";
+        
+        //Error for Post's tilte
+        if (empty($this->post_title)) {
+            $this->errors['post_title_err'] = "Post's title cannot be empty!";
         }
+        else if(strlen($this->post_title) < 5) {
+            $this->errors['post_title_err'] = "Post's title should have at least 5 characters";
+        }
+        
+        //Error for Post's body
+        if (empty($this->post_body)) {
+            $this->errors['post_body_err'] = "Post's message cannot be empty!";
+        }
+        else if(strlen($this->post_body) < 20) {
+            $this->errors['post_body_err'] = "Post's message should have at least 20 characters";
+        }
+        
+
         // if files then validate
 
         if (!FileManager::isEmptyPostFiles($files)) {

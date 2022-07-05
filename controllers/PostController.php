@@ -24,6 +24,11 @@ class PostController extends Controller
                 header("Location: " . ROOT);
             }
         }
+        else {
+            $errors = $post->errors;
+            //var_dump($errors);
+            include "views/create_post.php";
+        }
         // var_dumps($post->errors);
         //  else {
         //     echo "this post has an error";

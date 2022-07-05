@@ -34,11 +34,23 @@
                 <div class="form-group">
                   <label for="title ">Subject</label>
                   <input type="text" name="title" class="form-control" placeholder="Put your feedback title">
+                  <?php if(!empty($errors)): ?>
+                    <?php if(isset($errors['post_title_err'])): ?>
+                          <p class="feedback-err"><?php echo $errors['post_title_err']; ?></p>
+                    <?php endif; ?>
+                  <?php endif; ?>
                 </div>
+                
                 <div class="form-group">
                   <label for="body">Message</label>
                   <textarea name="body" rows="4" class="form-control" placeholder="Put your feedback content"></textarea>
+                  <?php if(!empty($errors)): ?>
+                    <?php if(isset($errors['post_body_err'])): ?>
+                          <p class="feedback-err"><?php echo $errors['post_body_err']; ?></p>
+                    <?php endif; ?>
+                  <?php endif; ?>
                 </div>
+                
                 <div class="form-group">
                   <label for="title">Image</label>
                   <input type="file" name="files[]" class="form-control" multiple>
