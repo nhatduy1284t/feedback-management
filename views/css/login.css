@@ -160,7 +160,7 @@ div.signup-err {
 }
 
 p.feedback-err {
-  color: #ff4040;
+  color: #ff4040 !important; 
   font-size: 14px;
   margin-top: 1px;
 }
