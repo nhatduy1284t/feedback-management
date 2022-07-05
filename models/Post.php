@@ -196,7 +196,7 @@ class Post
     {
         $total = $posts_count;
         $item_per_page = 8;
-        $pages = ceil($total / $item_per_page) -1;
+        $pages = ceil($total / $item_per_page);
         return $pages;
     }
 }
