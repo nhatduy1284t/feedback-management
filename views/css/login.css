@@ -159,4 +159,8 @@ div.signup-err {
   padding: 0.75rem 0;
 }
 
-/* hello world */
+p.feedback-err {
+  color: #ff4040;
+  font-size: 14px;
+  margin-top: 1px;
+}
