@@ -6,7 +6,6 @@ h3 {
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 header.masthead {
-
   padding-top: 6rem !important;
   padding-bottom: 6rem !important;
 }
@@ -22,7 +21,8 @@ body {
   font-family: 'Numans', sans-serif;
 }
 
-.login, .login header.masthead {
+.login,
+.login header.masthead {
   height: 100%;
 }
 
@@ -123,24 +123,40 @@ input:focus {
   margin: 0;
 }
 
+body {
+  background-image: url(../assets/img/banner.avif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.create {
+  height: 100%;
+}
+
 .create__post__user .masthead {
   height: 100%;
-  padding-top: 7rem!important;
+  padding-top: 7rem !important;
   padding-bottom: 0;
+}
+.create__post__user .masthead::after {
+  width: 0;
 }
 
 .create__post__user .btn-send {
   background-color: #212529;
   color: #ffc800;
-  border:none;
+  border: none;
   font-weight: 600;
-} 
+}
 .create__post__user header.masthead {
   background-attachment: fixed;
+  background: none;
 }
 
 header.vh-110 {
-  height: 110vh !important; 
+  height: 110vh !important;
   /* height: 100%; */
 }
 
@@ -160,7 +176,7 @@ div.signup-err {
 }
 
 p.feedback-err {
-  color: #ff4040 !important; 
+  color: #ff4040 !important;
   font-size: 14px;
   margin-top: 1px;
 }
