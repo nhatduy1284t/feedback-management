@@ -21,24 +21,22 @@ class PostController extends Controller
 
             if ($post->createNewPost()->success()) {
                 // Messenger::setMsg("New post created!", "success");
-                header("Location: " . ROOT);
+                // header("Location: " . ROOT);
+                include "views/inc/create_post_success.php";
             }
-        }
-        else {
+        } else {
             $errors = $post->errors;
-            //var_dump($errors);
             include "views/create_post.php";
         }
-        // var_dumps($post->errors);
-        //  else {
-        //     echo "this post has an error";
-        //     $errors = $post->errors;
-        //     include "views/create_post.php";
-        // }
     }
 
     public function getPost($id)
     {
+        if ($_SESSION['logged_in'] === false) {
+            include "views/login.php";
+            return;
+        }
+
         //get post by post id (not user id)
         $postObj = new Post($this->conn);
         $postObj->fetchPost($id);
@@ -48,6 +46,10 @@ class PostController extends Controller
     }
     public function getPostsAdmin()
     {
+        if ($_SESSION['logged_in'] === false) {
+            include "views/login.php";
+            return;
+        }
         $postObj = new Post($this->conn);
         //check if it is normal user
         if ($_SESSION['user_role'] === 0) {
@@ -113,7 +115,12 @@ class PostController extends Controller
 
     public function getCreate()
     {
-        include "views/create_post.php";
+
+        if ($_SESSION['logged_in'] === false) {
+            include "views/login.php";
+        } else {
+            include "views/create_post.php";
+        }
     }
 
     public function responsePost($response)

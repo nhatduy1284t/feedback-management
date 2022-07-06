@@ -16,13 +16,14 @@
             height: 100vh;
             object-fit: cover;
             object-position: 50% 0%;
+            top:0
         }
     </style>
 </head>
 
 <body>
     <a href="<?= ROOT ?>">
-        <img class="image-404" src="<?= ROOT . "views/assets/img/404.webp" ?>" alt="">
+        <img class="image-404 position-absolute top-0" src="<?= ROOT . "views/assets/img/404.webp" ?>" alt="">
     </a>
     <!-- <div class="jumbotron text-center py-5">
         <h1 class="display-3">404 Page Not Found!</h1>

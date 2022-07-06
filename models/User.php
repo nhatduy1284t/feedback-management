@@ -45,6 +45,12 @@ class User
         $_SESSION['logged_in'] = true;
     }
 
+    public function isLogin() {
+        if(!isset($_SESSION['logged_in'])) {
+            return false;
+        }
+    }
+
     public static function logout() {
         unset($_SESSION['user_name']);
         unset($_SESSION['user_role']);

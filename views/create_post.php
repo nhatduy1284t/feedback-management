@@ -34,26 +34,33 @@
                 <div class="form-group">
                   <label for="title ">Subject</label>
                   <input type="text" name="title" class="form-control" placeholder="Put your feedback title">
-                  <?php if(!empty($errors)): ?>
-                    <?php if(isset($errors['post_title_err'])): ?>
-                          <p class="feedback-err"><?php echo $errors['post_title_err']; ?></p>
+                  <?php if (!empty($errors)) : ?>
+                    <?php if (isset($errors['post_title_err'])) : ?>
+                      <p class="feedback-err"><?php echo $errors['post_title_err']; ?></p>
                     <?php endif; ?>
                   <?php endif; ?>
                 </div>
-                
+
                 <div class="form-group">
                   <label for="body">Message</label>
                   <textarea name="body" rows="4" class="form-control" placeholder="Put your feedback content"></textarea>
-                  <?php if(!empty($errors)): ?>
-                    <?php if(isset($errors['post_body_err'])): ?>
-                          <p class="feedback-err"><?php echo $errors['post_body_err']; ?></p>
+                  <?php if (!empty($errors)) : ?>
+                    <?php if (isset($errors['post_body_err'])) : ?>
+                      <p class="feedback-err"><?php echo $errors['post_body_err']; ?></p>
                     <?php endif; ?>
                   <?php endif; ?>
                 </div>
-                
+
                 <div class="form-group">
-                  <label for="title">Image</label>
+                  <label for="title">Image (optional - jpg, jpeg, gif, png)</label>
                   <input type="file" name="files[]" class="form-control" multiple>
+                  <?php if (!empty($errors)) : ?>
+                    <?php if (isset($errors['post_img_size_err'])) : ?>
+                      <p class="feedback-err"><?php echo $errors['post_img_size_err']; ?></p>
+                    <?php elseif (isset($errors['post_img_ext_err'])) : ?>
+                      <p class="feedback-err"><?php echo $errors['post_img_ext_err']; ?></p>
+                    <?php endif; ?>
+                  <?php endif; ?>
                 </div>
                 <?php CSRF::outputToken(); ?>
                 <button type="submit" class="btn-send btn btn-secondary btn-block btn-lg"> Send</button>

@@ -65,7 +65,7 @@ class Post
         WHERE p.user_id = ?
        ";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i",$user_id);
+        $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $result = $stmt->get_result();
         if ($result->num_rows !== 0) {
@@ -100,8 +100,6 @@ class Post
 
     public function createNewPost()
     {
-
-
         // write post info to database
         $sql = "INSERT INTO post (title, body, category, user_id, status) 
                 VALUES (?,?,?,?,?)";
@@ -151,23 +149,21 @@ class Post
         $this->post_category = htmlspecialchars($post['category']);
         $this->post_status = 0;
         $this->user_id = $_SESSION['user_id'];
-        
+
         //Error for Post's tilte
         if (empty($this->post_title)) {
             $this->errors['post_title_err'] = "Post's title cannot be empty!";
-        }
-        else if(strlen($this->post_title) < 5) {
+        } else if (strlen($this->post_title) < 5) {
             $this->errors['post_title_err'] = "Post's title should have at least 5 characters";
         }
-        
+
         //Error for Post's body
         if (empty($this->post_body)) {
             $this->errors['post_body_err'] = "Post's message cannot be empty!";
-        }
-        else if(strlen($this->post_body) < 20) {
+        } else if (strlen($this->post_body) < 20) {
             $this->errors['post_body_err'] = "Post's message should have at least 20 characters";
         }
-        
+
 
         // if files then validate
 
@@ -181,10 +177,18 @@ class Post
                 $file['error'] = $files['files']['error'][$i];
                 $file['size'] = $files['files']['size'][$i];
 
-                if (FileManager::validateFile($file, 5000000) === false) {
+                if (FileManager::validateFile($file) === false) {
                     $this->errors['post_img_err'] = "There is a problem with your file";
+
+                    if (!empty(FileManager::$errors['file_ext'])) {
+                        $this->errors['post_img_ext_err'] = "Only accept jpg, jpeg, gif, png extensions";
+                        return $this;
+                    }
                 }
                 array_push($this->post_files, $file);
+            }
+            if (FileManager::getTotalFilesSize($files) > 5000000) {
+                $this->errors['post_img_size_err'] = "Total of files size must be less than 5MB";
             }
         }
 
@@ -201,7 +205,6 @@ class Post
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("si", $post_message, $post_id);
         $stmt->execute();
-        var_dumps($stmt);
         if ($stmt->affected_rows === 1) {
             Router::redirect("admin/posts");
         }
