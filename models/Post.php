@@ -213,7 +213,7 @@ class Post
     public function getPageNum($posts_count)
     {
         $total = $posts_count;
-        $item_per_page = 8;
+        $item_per_page = 10;
         $pages = ceil($total / $item_per_page);
         return $pages;
     }

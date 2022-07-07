@@ -94,8 +94,8 @@ class PostController extends Controller
         //handle pagination
         if (isset($_GET['start'])) {
             $post_start_index = $_GET['start'];
-            var_dump($post_start_index);
         }
+ 
         $total = count($posts);
         $range = $post_start_index + 10;
 

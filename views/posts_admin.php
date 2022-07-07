@@ -134,14 +134,6 @@ include "./views/inc/head.php";
                                     echo "<span class='text-success'>Completed</span>";
                                 } ?>
                             </td>
-                            <!-- <td>
-                            <button type="button" class="btn btn-danger">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                            <button type="button" class="btn btn-success">
-                                <i class="fa fa-check"></i>
-                            </button>
-                        </td> -->
                         </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -168,6 +160,6 @@ include "./views/inc/head.php";
 <!-- For user -->
 
 <?php
-
+// var_dumps($num_pages);
 include "./views/inc/footer.php";
 ?>
