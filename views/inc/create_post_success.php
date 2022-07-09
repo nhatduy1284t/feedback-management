@@ -33,5 +33,5 @@ include "head.php";
 
 
 <?php
-include "inc/footer.php";
+include "footer.php";
 ?>
