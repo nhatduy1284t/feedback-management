@@ -8,7 +8,7 @@ include "./views/inc/head.php";
 
 <div class="admin-post">
     <div class="container pb50">
-        <a class="text-muted" href="<?= ROOT . "admin/posts" ?>"><i class="fa fa-long-arrow-alt-left"></i>Go back</a>
+        <a class="text-muted" href="<?= ROOT . "user/posts" ?>"><i class="fa fa-long-arrow-alt-left"></i>Go back</a>
         <div class="row">
             <div class="col-md-12 mb40">
                 <article>
@@ -40,7 +40,7 @@ include "./views/inc/head.php";
                             <?php else : ?>
                                 <p class="alert alert-warning"><?php echo "This post is still pending" ?></p>
                             <?php endif ?>
-                            <form action="<?= ROOT . "admin/posts/response" ?>" role="form" method="POST">
+                            <form action="<?= ROOT . "user/posts/response" ?>" role="form" method="POST">
                                 <div class="form-group ">
                                     <label>Message</label>
                                     <textarea name="message" class="form-control mt-2" rows="5" placeholder="<?php
@@ -55,8 +55,7 @@ include "./views/inc/head.php";
                                 </div>
                                 <input type="hidden" name="post_id" value="<?= $post['id'] ?>" />
                                 <div class="d-flex justify-content-end mt-2">
-                                    <!-- <button type="button" class="btn-reject btn btn-danger btn-lg">Reject</button> -->
-                                    <?php CSRF::outputToken();?>
+                                    <?php CSRF::outputToken(); ?>
                                     <button type="submit" class="btn-approve btn btn-success btn-lg">Complete</button>
                                 </div>
                             </form>

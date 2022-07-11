@@ -7,7 +7,6 @@ class Router {
     public static $validRoutes = [];
     public static $params;
     public static $found = false;
-    // constructor (not needed)
 
     //static methods
     // get method to handle GET Req

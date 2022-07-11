@@ -206,7 +206,7 @@ class Post
         $stmt->bind_param("si", $post_message, $post_id);
         $stmt->execute();
         if ($stmt->affected_rows === 1) {
-            Router::redirect("admin/posts");
+            Router::redirect("user/posts");
         }
     }
 

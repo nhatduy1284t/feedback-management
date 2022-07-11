@@ -38,9 +38,7 @@ $err_msg = ""; ?>
                                 </div>
                                 <input type="password" name="password" class="form-control" placeholder="password">
                             </div>
-                            <!-- <div class="row align-items-center remember">
-                                <input type="checkbox">Remember Me
-                            </div> -->
+
                             <div class="form-group">
                                 <?php CSRF::outputToken(); ?>
                                 <input type="submit" value="Login" class="btn float-right login_btn">
@@ -48,21 +46,15 @@ $err_msg = ""; ?>
                             <?php
                             if (isset($errors['username_err'])) {
                                 $err_msg = $errors['username_err'];;
-                                //$_SESSION['err_msg'] = $errors['username_err'];
-                                //echo $error['username_err'];
                             } else if (isset($error['password_err'])) {
                                 $err_msg = $errors['password_err'];
-                                //$_SESSION['err_msg'] = $errors['password_err'];
-                                //echo $error['password_err'];
                             }
                             ?>
                             <?php if (!empty($errors)) : ?>
                                 <div class="alert alert-danger form-group login-err">
-                                    <p><?php //var_dump($errors); 
+                                    <p><?php
                                         echo array_values($errors)[0];
-                                        //echo $err_msg;
-                                        //var_dump($_SESSION); 
-                                        //echo $errors['username_err']; 
+
                                         ?></p>
                                 </div>
                             <?php endif ?>

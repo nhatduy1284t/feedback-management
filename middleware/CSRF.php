@@ -30,7 +30,7 @@ class CSRF {
     public static function checkToken($req) {
         if(!empty($req)) {
             if(!isset($req['token']) || $_SESSION['token'] !== $req['token']) {
-                include "views/_404.php";
+                include "views/_403.php";
                 self::clearToken();
                 exit;
             }

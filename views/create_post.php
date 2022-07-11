@@ -18,10 +18,6 @@
             </div>
             <div class="card-body  text-left">
               <form action="<?= ROOT ?>user/post/create" method="post" enctype="multipart/form-data">
-                <!-- <div class="form-group" >
-                        <label for="ID">User ID</label>
-                        <input type="text" name="title" class="form-control" placeholder="ID....">
-                      </div> -->
                 <div class="form-group ">
                   <label for="category">You want to give us a feedback about:</label>
                   <select name="category" class="w-100 p-1">

@@ -20,8 +20,6 @@ class PostController extends Controller
         if ($post->validatePost($_POST, $_FILES)->success()) {
 
             if ($post->createNewPost()->success()) {
-                // Messenger::setMsg("New post created!", "success");
-                // header("Location: " . ROOT);
                 include "views/inc/create_post_success.php";
             }
         } else {
@@ -42,7 +40,7 @@ class PostController extends Controller
         $postObj->fetchPost($id);
         $post = $postObj->post;
 
-        include "./views/post_admin.php";
+        include "./views/post.php";
     }
     public function getPostsAdmin()
     {
@@ -51,6 +49,7 @@ class PostController extends Controller
             return;
         }
         $postObj = new Post($this->conn);
+
         //check if it is normal user
         if ($_SESSION['user_role'] === 0) {
             $postObj->fetchPostsByUserId($_SESSION['user_id']);
@@ -63,9 +62,7 @@ class PostController extends Controller
         $status = "all";
         $category = "all";
         $post_start_index = 0;
-
-
-
+        $posts_per_page = 10;
         //handle filter
         if (isset($_GET['filter_status']) || isset($_GET['filter_category'])) {
             $status = ($_GET['filter_status']);
@@ -88,16 +85,15 @@ class PostController extends Controller
                 }
             }
         }
-
         $num_pages = $postObj->getPageNum(count($posts));
 
         //handle pagination
         if (isset($_GET['start'])) {
             $post_start_index = $_GET['start'];
         }
- 
+
         $total = count($posts);
-        $range = $post_start_index + 10;
+        $range = $post_start_index + $posts_per_page;
 
         if ($range < $total) {
             for ($i = $post_start_index; $i < $range; $i++) {
@@ -109,13 +105,11 @@ class PostController extends Controller
             };
         }
         $posts = $posts_one_page;
-
-        include "views/posts_admin.php";
+        include "views/posts.php";
     }
 
     public function getCreate()
     {
-
         if ($_SESSION['logged_in'] === false) {
             include "views/login.php";
         } else {

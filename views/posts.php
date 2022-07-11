@@ -10,7 +10,7 @@ include "./views/inc/head.php";
     <div class="container table-posts mt-1 w-100 ">
         <?php if ($_SESSION['user_role'] === 1) : ?>
             <!-- ADMIN USER -->
-            <form action=<?= ROOT . "admin/posts" ?> method="GET">
+            <form action=<?= ROOT . "user/posts" ?> method="GET">
                 <div class="d-flex justify-content-end mb-2">
                     <select name="filter_status" class="form-select w-25" aria-label="Default select example">
                         <?php
@@ -48,7 +48,7 @@ include "./views/inc/head.php";
                         <th>Title</th>
                         <th>Category</th>
                         <th>Status</th>
-                        <!-- <th>Actions</th> -->
+
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +63,7 @@ include "./views/inc/head.php";
                             </td>
                             <td>
                                 <p class="fw-normal mb-1">
-                                    <a href="<?php echo ROOT . "admin/posts/get/" . $post['id'] ?>" class="text-dark "><?= $post['title'] ?></a>
+                                    <a href="<?php echo ROOT . "user/posts/get/" . $post['id'] ?>" class="text-dark "><?= $post['title'] ?></a>
                                 </p>
                             </td>
 
@@ -77,14 +77,7 @@ include "./views/inc/head.php";
                                     echo "<span class='text-success'>Completed</span>";
                                 } ?>
                             </td>
-                            <!-- <td>
-                            <button type="button" class="btn btn-danger">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                            <button type="button" class="btn btn-success">
-                                <i class="fa fa-check"></i>
-                            </button>
-                        </td> -->
+
                         </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -123,7 +116,7 @@ include "./views/inc/head.php";
                             </td>
                             <td>
                                 <p class="fw-normal mb-1">
-                                    <a href="<?php echo ROOT . "admin/posts/get/" . $post['id'] ?>" class="text-dark "><?= $post['title'] ?></a>
+                                    <a href="<?php echo ROOT . "user/posts/get/" . $post['id'] ?>" class="text-dark "><?= $post['title'] ?></a>
                                 </p>
                             </td>
 
@@ -160,6 +153,6 @@ include "./views/inc/head.php";
 <!-- For user -->
 
 <?php
-// var_dumps($num_pages);
+
 include "./views/inc/footer.php";
 ?>

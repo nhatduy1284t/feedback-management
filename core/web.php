@@ -3,11 +3,7 @@
 
 // home
 Router::get("", function() {
-    //echo "Hello world";
     include "views/home.php";
-    //echo "hello world";
-    //unset($_SESSION['page_before']);
-    //var_dump($_POST);
 });
 Router::get("home", function() {
     include "./views/home.php";
@@ -52,18 +48,18 @@ Router::post("user/post/create",function () {
 
 
 // admin
-Router::get("admin/posts",function () {
+Router::get("user/posts",function () {
     $postController = new PostController;
     $postController->getPostsAdmin();
 
 });
 
-Router::get("admin/posts/get/{id}",function ($id) {
+Router::get("user/posts/get/{id}",function ($id) {
     $postController = new PostController;
     $postController->getPost($id);
 });
 
-Router::post("admin/posts/response",function () {
+Router::post("user/posts/response",function () {
     $postController = new PostController;
     $postController->responsePost($_POST);
 
