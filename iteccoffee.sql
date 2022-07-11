@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2022 at 10:40 AM
+-- Generation Time: Jul 11, 2022 at 07:09 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -46,6 +46,7 @@ CREATE TABLE `post` (
   `category` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
+  `post_message` text DEFAULT NULL,
   `created_date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -53,11 +54,13 @@ CREATE TABLE `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `title`, `body`, `category`, `user_id`, `status`, `created_date`) VALUES
-(26, 'Good post', 'Post test here!!!!!!!!!!!!!!', 'drink', 28, 0, '2022-07-09 15:34:08'),
-(27, 'Complaint about service', 'We need to be cared more', 'service', 28, 0, '2022-07-09 15:35:22'),
-(28, 'posttttttttttttttttttt', 'postttttttttttttttttttttttttttttttttt', 'drink', 28, 0, '2022-07-09 15:38:20'),
-(29, 'Post from normal user', 'Hello, i want to say that the service is so good :&gt;', 'service', 29, 0, '2022-07-09 15:39:22');
+INSERT INTO `post` (`id`, `title`, `body`, `category`, `user_id`, `status`, `post_message`, `created_date`) VALUES
+(26, 'Good post', 'Post test here!!!!!!!!!!!!!!', 'drink', 28, 0, NULL, '2022-07-09 15:34:08'),
+(27, 'Complaint about service', 'We need to be cared more', 'service', 28, 0, NULL, '2022-07-09 15:35:22'),
+(28, 'posttttttttttttttttttt', 'postttttttttttttttttttttttttttttttttt', 'drink', 28, 0, NULL, '2022-07-09 15:38:20'),
+(29, 'Post from normal user', 'Hello, i want to say that the service is so good :&gt;', 'service', 29, 0, NULL, '2022-07-09 15:39:22'),
+(30, 'sadsadassadsadassadsadas', 'sadsadassadsadassadsadas', 'drink', 30, 1, 'hahahaa', '2022-07-11 11:57:53'),
+(31, 'Good drink', 'I lovee your coffee, it tastes very good!', 'drink', 30, 1, 'Thank you very much', '2022-07-11 12:08:28');
 
 -- --------------------------------------------------------
 
@@ -79,7 +82,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`) VALUES
 (28, 'admin', '$2y$10$GvXzEDQVrX1.kBVyluQqEOGRRk.8M0gVyfHgXYeanP.0dtIw/QtYy', 'admin@gmail.com', 1),
-(29, 'normaluser', '$2y$10$7JVrgTUEceZBoSEEYHc3pOShoR0WvUuCpCuqMg7PB67AEqG0Wn8aO', 'user@gmail.itec', 0);
+(29, 'normaluser', '$2y$10$7JVrgTUEceZBoSEEYHc3pOShoR0WvUuCpCuqMg7PB67AEqG0Wn8aO', 'user@gmail.itec', 0),
+(30, 'nhatduy', '$2y$10$Luiwjxd9w4rWvWS.ffH38eHT.sJNmvHOq.WOALf/u6efBaXRrlxjO', 'nhatduy1284t@gmail.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -117,13 +121,13 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
