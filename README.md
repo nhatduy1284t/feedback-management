@@ -1,6 +1,6 @@
 Project name: **Feedback Management System**
 
-Link: http://157.245.56.78/feedback-management/
+
 
 Members:
 
