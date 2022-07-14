@@ -1,4 +1,5 @@
 Project name: **Feedback Management System**
+Link: http://157.245.56.78/feedback-management/
 
 Members:
 
@@ -24,3 +25,4 @@ Manager receives those feedbacks and response to the customer.
 - Go to phpmyadmin and create a database **iteccoffee**, then import the iteccoffee.sql file.
 - The admin account is provided with **username: admin** and **password: 123123**
 - In case you want to create an admin account, you have to create an account in the sign up page, then go to the database in phpmyadmin and change the role from 0 to 1.
+
