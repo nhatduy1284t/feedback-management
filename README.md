@@ -14,6 +14,7 @@ Manager receives those feedbacks and response to the customer.
 #### Customer (User)
 - Create account
 - Post complaints based on different categories
+- Optional: Can upload multiple image files.
 #### Manager (Admin)
 - View all feedbacks
 - Complete feedbacks and leave messages to the customer.
